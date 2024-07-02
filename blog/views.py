@@ -32,3 +32,14 @@ def createPost(request):
 
     return render(request, "new_post.html")
 
+
+def updatePost(request, pk):
+    post = Post.objects.get(id=pk)
+    context = {"post":post}
+    if request.method == "POST":
+        post.title = request.POST.get("title")
+        post.body = request.POST.get("description")
+        post.save()
+        return redirect('home')
+    return render(request, "post_update.html", context)
+
