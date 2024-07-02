@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 from django.shortcuts import render, redirect
 from .models import Post
+# from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
@@ -18,17 +19,16 @@ def deletePost(request, pk):
 
 
 def createPost(request):
-    context = {}
+    # context = {}
     if request.method == "POST":
-        try:
-            Post.objects.create(
-                title = request.POST.get("title"),
-                body = request.POST.get("description"),
-                autor = request.user
-                )
-            return redirect("home")
-        except:
-            context["message"] = "*Invalid details"
+        Post.objects.create(
+            title = request.POST.get("title"),
+            body = request.POST.get("description")
+            # author = request.user 
+        )
+        return redirect('home')
+        # except:
+        #     context["message"] = "Invalid details"
 
-    return render(request, "new_post.html", context)
+    return render(request, "new_post.html")
 
