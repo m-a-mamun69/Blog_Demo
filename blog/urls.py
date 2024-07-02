@@ -7,4 +7,6 @@ urlpatterns = [
     path('post/<str:pk>/delete/', views.deletePost, name="post_delete"),
     path('new_post/', views.createPost, name="new_post"),
     path('post/<str:pk>/edit', views.updatePost, name="post_update"),
+    path('login/', views.loginUser, name="login"),
+    path('logout/', views.logoutUser, name="logout"),
 ]
