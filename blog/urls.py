@@ -9,4 +9,5 @@ urlpatterns = [
     path('post/<str:pk>/edit', views.updatePost, name="post_update"),
     path('login/', views.loginUser, name="login"),
     path('logout/', views.logoutUser, name="logout"),
+    path('signup/', views.registerUser, name="register"),
 ]
