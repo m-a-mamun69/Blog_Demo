@@ -74,7 +74,7 @@ def myAccount(request):
     context = {"posts":user_posts}
     context["capitalize_username"] = request.user.username.capitalize()
     return render(request, "my_account.html", context)
-
+# End Auth
 
 # Posts CRUD
 def getPost(request, pk):
